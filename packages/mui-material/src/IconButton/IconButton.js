@@ -43,19 +43,19 @@ const IconButtonRoot = styled(ButtonBase, {
   ({ theme, ownerState }) => ({
     textAlign: 'center',
     flex: '0 0 auto',
-    fontSize: theme.typography.pxToRem(24),
+    fontSize: theme.typography?.pxToRem(24),
     padding: 8,
     borderRadius: '50%',
     overflow: 'visible', // Explicitly set the default value to solve a bug on IE11.
-    color: (theme.vars || theme).palette.action.active,
-    transition: theme.transitions.create('background-color', {
-      duration: theme.transitions.duration.shortest,
+    color: (theme.vars || theme).palette?.action?.active,
+    transition: theme.transitions?.create('background-color', {
+      duration: theme.transitions?.duration?.shortest,
     }),
     ...(!ownerState.disableRipple && {
       '&:hover': {
         backgroundColor: theme.vars
-          ? `rgba(${theme.vars.palette.action.activeChannel} / ${theme.vars.palette.action.hoverOpacity})`
-          : alpha(theme.palette.action.active, theme.palette.action.hoverOpacity),
+          ? `rgba(${theme.vars.palette?.action?.activeChannel} / ${theme.vars.palette?.action?.hoverOpacity})`
+          : alpha(theme.palette?.action?.active, theme.palette?.action?.hoverOpacity),
         // Reset on touch devices, it doesn't add specificity
         '@media (hover: none)': {
           backgroundColor: 'transparent',
@@ -75,14 +75,14 @@ const IconButtonRoot = styled(ButtonBase, {
     }),
     ...(ownerState.color !== 'inherit' &&
       ownerState.color !== 'default' && {
-        color: (theme.vars || theme).palette[ownerState.color].main,
+        color: (theme.vars || theme).palette?.[ownerState.color]?.main,
         ...(!ownerState.disableRipple && {
           '&:hover': {
             backgroundColor: theme.vars
-              ? `rgba(${theme.vars.palette[ownerState.color].mainChannel} / ${
-                  theme.vars.palette.action.hoverOpacity
+              ? `rgba(${theme.vars.palette?.[ownerState.color]?.mainChannel} / ${
+                  theme.vars.palette?.action?.hoverOpacity
                 })`
-              : alpha(theme.palette[ownerState.color].main, theme.palette.action.hoverOpacity),
+              : alpha(theme.palette?.[ownerState.color]?.main, theme.palette?.action?.hoverOpacity),
             // Reset on touch devices, it doesn't add specificity
             '@media (hover: none)': {
               backgroundColor: 'transparent',
@@ -92,15 +92,15 @@ const IconButtonRoot = styled(ButtonBase, {
       }),
     ...(ownerState.size === 'small' && {
       padding: 5,
-      fontSize: theme.typography.pxToRem(18),
+      fontSize: theme.typography?.pxToRem(18),
     }),
     ...(ownerState.size === 'large' && {
       padding: 12,
-      fontSize: theme.typography.pxToRem(28),
+      fontSize: theme.typography?.pxToRem(28),
     }),
     [`&.${iconButtonClasses.disabled}`]: {
       backgroundColor: 'transparent',
-      color: (theme.vars || theme).palette.action.disabled,
+      color: (theme.vars || theme).palette?.action?.disabled,
     },
   }),
 );
